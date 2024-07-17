@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selbsteinschätzung von Kompetenzen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-left: 5px solid;
+}
+.section.introduction {
+    border-left-color: #1a5f7a;  /* Dunkleres Blau */
+}
+.section.analysis {
+    border-left-color: #f39c12;  /* Gelb */
+}
+.section.interaction {
+    border-left-color: #3498db;  /* Helleres Blau */
+}
+.section.reflection {
+    border-left-color: #e67e22;  /* Orange */
+}
+.section.reminder {
+    border-left-color: #1a5f7a;  /* Dunkleres Blau */
+}
+     .instructions, .reminder-section {
+            background-color: #f0f0f0;
+            border-left: 5px solid #1a5f7a;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .range-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 20px;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .range-labels li {
+            position: relative;
+            text-align: center;
+            flex: 1;
+        }
+        .range-labels li::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 10px;
+            background: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+        .button-calendar-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .button-group {
+            display: flex;
+            margin-right: 20px;
+        }
+        .button-group button {
+            background-color: ##1a5f7a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .button-group button:hover {
+            background-color: #2980b9;
+        }
+        #reminderDate {
+            padding: 5px;
+            font-family: Arial, sans-serif;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+        }
+        p {
+            text-align: justify;
+        }
+        .competency-title {
+            font-weight: bold;
+        }
+        #results {
+            background-color: #f8f8f8;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-top: 20px;
+        }
+<style>
+    /* Bestehende Styles hier ... */
+
+    /* Nachtmodus Styles */
+    body.night-mode {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+    }
+
+    body.night-mode .section {
+        background-color: #2c2c2c;
+        border-left-color: #4a4a4a;
+    }
+
+    body.night-mode h1, body.night-mode h2 {
+        color: #ffffff;
+    }
+
+    body.night-mode .button-group button {
+        background-color: #4a4a4a;
+        color: #ffffff;
+    }
+
+    body.night-mode .button-group button:hover {
+        background-color: #5a5a5a;
+    }
+
+    body.night-mode input[type="range"] {
+        background-color: #4a4a4a;
+    }
+
+    body.night-mode textarea {
+        background-color: #2c2c2c;
+        color: #f0f0f0;
+        border: 1px solid #4a4a4a;
+    }
+    </style>
+</head>
+<body>
+<body/>
+
+<div class="section introduction">
+    <h1>Selbsteinschätzung von Kompetenzen</h1>
+
+ <p>Dieses E-Assessment soll Ihnen helfen, Ihre eigenen Kompetenzen zu Beginn, in der Mitte un am Ende Ihres Studiums zu visualisieren. Es bietet Ihnen die Möglichkeit, Ihre Kompetenzen selbstständig einzuschätzen. Gleichzeitig wird deutlich, welche Kompetenzen insbesondere für Ihr berufliches Handeln in der Sozialen Arbeit erforderlich sind. Das E-Assessment orientiert sich am Kompetenzmodell von Maja Heiner.</p>
+
+<h2>Zur Einordnung</h2>
+<p>Soziale Arbeit hat die Aufgabe, die Lebensbedingungen und Lebensweisen von Adressat*innen zu unterstützen und muss hierbei entsprechende Kooperationen mit Adressat*innen und Leistungssystemen eingehen. Soziale Arbeit vermittelt zwischen Individuum und Gesellschaft. Das vorliegende Kompetenzmodell differenziert entsprechend dieser Bereiche „Fallkompetenz” und „Systemkompetenz”. Fallkompetenz beschreibt die Fähigkeiten, die Sozialarbeiter*innen benötigen, wenn diese direkt für Adressat*innen arbeiten. Die Systemkompetenz zielt auf die indirekte Adressat*innenarbeit ab, beispielsweise mit Organisationen des Wohlfahrtstaates. Hierbei geht es um die Durchsetzung der Rechte von Adressat*innen oder um die Vermittlung von Leistungen. Fallkompetenz und Systemkompetenz decken zwei Adressat*innengruppen ab: die Adressat*innen und die Kooperationspartner*innen im Leistungssystem des Wohlfahrtsstaates. Eine Adressat*innengruppe, deren Relevanz insbesondere im Bereich der Humandienstleistungen signifikant ist, sind die Fachkräfte (vgl. Heiner 2010: 63). Die Fachkraft "muss sich ihrer eigenen Person zuwenden, ihre Stärken und Schwächen kennen und deren Auswirkungen im Handlungsvollzug beobachten, um Selbstkompetenz zu entwickeln" (ebd.). Die drei Kompetenzen Selbst-, Fall- und Systemkompetenz benennen damit drei Handlungsfeldern mi ihren Adressat*innen innen. Selbstkompetenz bezieht sich auf die Person der Fachkraft. Fallkompetenz ist bezogen auf das Adressat*innensystem Systemkompetenz bezieht sich auf die eigene Organisation sowie anderen Organisationen. Diese lassen sich mit prozessbezogenen Kompetenzen verbinden. Das vorliegende E-Assessment verdeutlicht anhand der prozessbezogenen Kompetenzmuster Analyse- und Planungskompetenz, Interaktions- und Kommunikationskompetenz, Reflexions- und Evaluationskompetenzen, welche Kompetenzen für ein Handeln erforderlich sind, dass problemlösend oder -reduzierend ist (vgl. ebd.: 64).</p>
+
+<p>Das vorliegende E-Assessment soll exemplarisch an ausgewählten Teilkompetenzen verdeutlichen, welche dieserTeilkompetenzen in welchen Phasen beruflichen Handelns zur Lösung von Aufgaben benötigt werden. Da Sie schon einiges an Berufserfahrung mitbringen, werden Sie wahrscheinlich - je nach Ihrem Tätigkeitsfeld - in einigen der Kompetenzbereiche schon stärker ausgeprägte Fähigkeiten besitzen, während Sie Ihre Fähigkeiten in anderen Kompetenzbereichen möglicherweise als (noch) weniger stark ausgeprägt einschätzen. Der Zweck dieses E-Assessments liegt darin, sich Ihrer vorhandenen Fähigkeiten auf eine andere Weise bewusst zu werden und zudem speziell auf berufsbezogene Kompetenzen für die Disziplin Soziale Arbeit zu blicken.
+
+<p>Literatur<p>
+<p>Heiner, Maja (2010): Kompetent Handeln in der Sozialen Arbeit. München.
+Möcker, Christiane; Oldenburg, Erich; Ruther, Ingrid; Sagbeil, Betina (2009): Arbeitshilfe zur Analyse und Reflexion als Unterstützung für Praktika und Praxisberichte im Studiengang Soziale Arbeit. Bielefeld.<p>
+
+    <h2>Anleitung</h2>
+        <ol>
+            <li>Füllen Sie diesen Fragebogen zu Beginn (1.-2. Semester), in der Mitte (4.-5. Semester) und in der Abschlußphase Ihres Studiums aus.</li>
+            <li>Bewerten Sie Ihre Kompetenzen auf einer Skala von 1 (wenig ausgeprägt) bis 10 (stark ausgeprägt).</li>
+            <li>Beantworten Sie die offenen Fragen, um Ihre Erfahrungen und Entwicklungsziele zu reflektieren.</li>
+            <li>Klicken Sie auf "Ergebnisse anzeigen", um Ihre Einschätzung zu sehen.</li>
+            <li>Nutzen Sie den "Drucken" Button, um Ihre Ergebnisse zu speichern oder auszudrucken.</li>
+        </ol>
+        <p>Diese Selbsteinschätzung hilft Ihnen, Ihre Kompetenzentwicklung im Laufe des Studiums zu visualisieren und zu reflektieren. </p>
+    </div>
+
+<div class="section analysis">
+            <h2>Analyse- und Planungskompetenz: Teilkompetenzen</h2>
+<p>Tragen Sie im folgenden Abschnitt ein, wie Sie Ihre derzeitigen Analyse- und Planungskompetenzen anhand der exemplarisch ausgeführten Teilkompetenzen einschätzen.<p>
+
+           <label for="beobachtung" class="competency-title">Beobachtungskompetenz</label>
+<p>Der Begriff der Beobachtung bezeichnet ein bewusstes und zielbezogenes Wahrnehmen von Sachverhalten. Dieses erfolgt in der Regel in einer Planungs- und Analysephase (vgl. Heiner 2010: 67).<p>
+    <p>Wie ausgeprägt schätzen Sie Ihre Beobachtungskompetenz derzeit ein?<p>       
+ <div class="range-container">
+                <input type="range" id="beobachtung" name="beobachtung" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+           <label for="recherché" class="competency-title">Recherchekompetenz</label>
+<p>Recherchekompetenz bezieht sich auf die Fähigkeit, effektiv und systematisch nach Informationen zu suchen, diese zu bewerten, zu interpretieren und für einen bestimmten Zweck zu nutzen.<p>
+<p>Wie ausgeprägt schätzen Sie ihre Recherchekompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="recherche" name="recherche" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+          <label for="erklärung" class="competency-title">Erklärungskompetenz</label>
+<p>Erklärungskompetenz bezieht sich auf die Fähigkeit, komplexe Informationen oder Zusammenhänge analytisch kognitiv zu erfassen (vgl. Heiner 2010: 68).<p>
+<p>Wie ausgeprägt schätzen Sie ihre Erklärungskompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="erklaerung" name="erklaerung" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+            <label for="prognoses" class="competency-title">Prognosekompetenz</label>
+<p>Prognosekompetenz bezieht sich auf die Fähigkeit, zukünftige Ereignisse oder Entwicklung abzuschätzen.<p>
+<p>Wie ausgeprägt schätzen Sie ihre Prognosekompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="prognose" name="prognose" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+
+  <h2>Analyse- und Planungskompetenz: Anwendungsbereiche</h2>
+<p> Beispielhafte Anwendungsbereiche für die genannten Teilkompetenzen sind: Diagnostik, Fallanalyse, Situationsanalyse, Sozialraumanalyse, Konzeptionsentwicklung, Hilfeplanung, Projektentwicklung, Interventionsplanung u.a. (vgl. Heiner 2010: 66).<p>
+            
+            <label for="analyseerfahrung">Ich bringe bereits Erfahrungen aus diesen Anwendungsbereichen mit:</label>
+            <textarea id="analyseerfahrung" name="analyseerfahrung"></textarea>
+            
+            <label for="analysebeispiel">Folgendes Beispiel aus der Praxis fällt mir ein:</label>
+            <textarea id="analysebeispiel" name="analysebeispiel"></textarea>
+            
+            <label for="analyseentwicklung">In welchen Bereichen möchte ich meine Kenntnisse und Fähigkeiten bezugnehmend auf Analyse- und Planungskompetenzen weiterentwickeln?</label>
+            <textarea id="analyseentwicklung" name="analyseentwicklung"></textarea>
+            
+            <label for="analysewege">Welche Möglichkeiten und Wege stehen mir dafür offen?</label>
+            <textarea id="analysewege" name="analysewege"></textarea>
+        </div>
+
+<div class="section interaction">
+            <h2>Interaktions- und Kommunikationskompetenz: Teilkompetenzen</h2>
+<p>Tragen Sie im folgenden Abschnitt ein, wie Sie Ihre derzeitigen Interaktions- und Kommunikationskompetenzen anhand der exemplarisch ausgeführten Teilkompetenzen einschätzen.<p>
+
+             <label for="präsentation" class="competency-title">Präsentationskompetenz</label>
+<p>Wie ausgeprägt schätzen Sie ihre Präsentationskompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="praesentation" name="praesentation" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+            <label for="wahrnehmung" class="competency-title">Wahrnehmungskompetenz</label>
+<p>"Fähigkeit, zu einer eher schwebenden unfokussierten Aufmerksamkeit (in der Umsetzungsphase)" (Heiner 2010: 67f.)<p>
+<p>Wie ausgeprägt schätzen Sie ihre Wahrnehmungskompetenz derzeit ein?
+
+            <div class="range-container">
+                <input type="range" id="wahrnehmung" name="wahrnehmung" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+           <label for="rezeption" class="competency-title">Rezeptionskompetenz</label>
+<p>"die Fähigkeit, Wahrnehmungen bewusst zu speichern" (Heiner 2010: 68)<p>
+<p>Wie ausgeprägt schätzen Sie ihre Rezeptionskompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="rezeption" name="rezeption" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+            <label for="Mitteilung" class="competency-title">Mitteilungskompetenz (verbal und nonverbal)</label>
+<p>Mitteilungskompetenz bezieht sich auf die Fähigkeit, angemessen mit anderen Menschen kommunizieren. Sie umfasst das Verständnis verschiedener Kommunikationsformen, die Fähigkeit, Informationen klar und verständlich zu vermitteln, sowie die Fähigkeit, aktiv zuzuhören und auf die Bedürfnisse und Perspektiven anderer einzugehen.<p>
+<p>Wie ausgeprägt schätzen Sie ihre Mitteilungskompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="mitteilung" name="mitteilung" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+           <label for="einfühlung" class="competency-title">Einfühlungskompetenz</label>
+<p>"Fähigkeit zur Wahrnehmung von aktuellen, situativen Übertragungs- und Gegenübertragungsphänomenen in der Begegnung mit einer anderen Person" (Heiner 201 68)<p>
+<p>Wie ausgeprägt schätzen Sie ihre Einfühlungskompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="einfuehlung" name="einfuehlung" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+             <label for="strukturierung" class="competency-title">Strukturierungs- und Fokkusierungskompetenz</label>
+<p>Die Strukturierungs- und Fokussierungskompetenz in der Sozialen Arbeit bezieht sich auf die Fähigkeit, komplexe Situationen zu analysieren, Informationen zu organisieren, Ziele zu setzen und die Arbeit auf konkrete Aufgaben und Schwerpunkte zu fokussieren.<p>
+<p>Wie ausgeprägt schätzen Sie Ihre Strukturierungs- und Fokussierungskompetenzen derzei ein?<p>
+
+            <div class="range-container">
+                <input type="range" id="strukturierung" name="strukturierung" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+             <label for="deutung" class="competency-title">Deutungskompetenz</label>
+<p>bezeichnet eine "ganzheitlichere, intuitive und stärker affektiv ausgeprägte Fähigkeit der Interpretation von Verhaltensweisen und Situationen" (Heiner 2010: 68)<p>
+<p>Wie ausgeprägt schätzen Sie Ihre Deutungskompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="deutung" name="deutung" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+            
+             <label for="organization" class="competency-title">Organisationskompetenz</label>
+<p>In diesem Kompetenzmodell bedeutet Organisieren dass verschiedene Ressourcen, die ei Fachkraft möglicherweise nicht alle gleichermassen zur Verfügung stehen, bereitgestellt werden. Dies kann sich beispielsweise auf Gelder, Räumlichkeiten oder Dienstleistungen e beziehen (vgl. Heiner 2010: 67). "Vor allem 'Organisieren' verstanden als Koordination der Aktivitäten von Personen verlangt die Fähigkeit, die AdressatInnen zur Kooperation zu motivieren, Aktivitäten abzustimmen und unterstützend zu begleiten" (ebd.).<p>
+<p>
+Wie ausgeprägt schätzen Sie Ihre Organisationskompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="organisation" name="organisation" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+
+ <h2>Interaktions- und Kommunikationskompetenz: Anwendungsbereiche</h2>
+
+<p>Beispielhafte Anwendungsbereiche für die genannten Teilkompetenzen sind: Anleitung, Information, Beratung, Alltagsbegleitung, Alltagsstrukturierung, Gruppenleitung, Verhandlung, Gesprächsführung, Mediation, Moderation u.a. (vgl. Heiner 2010: 66).<p>
+
+            <label for="kommunikationerfahrung">Ich bringe bereits Erfahrungen aus diesen Anwendungsbereichen mit:</label>
+            <textarea id="kommunikationerfahrung" name="kommunikationerfahrung"></textarea>
+            
+            <label for="kommunikationbeispiel">Folgendes Beispiel aus der Praxis fällt mir ein:</label>
+            <textarea id="kommunikationbeispiel" name="kommunikationbeispiel"></textarea>
+            
+            <label for="kommunikationentwicklung">In welchen Bereichen möchte ich meine Kenntnisse und Fähigkeiten bezugnehmend auf Interaktions- und Kommunikationskompetenz weiterentwickeln?</label>
+            <textarea id="kommunikationentwicklung" name="kommunikationentwicklung"></textarea>
+            
+            <label for="kommunikationwege">Welche Möglichkeiten und Wege stehen mir dafür offen?</label>
+            <textarea id="kommunikationwege" name="kommunikationwege"></textarea>
+        </div>
+
+<div class="section reflection">
+            <h2>Reflexions- und Evaluationskompetenz</h2>
+
+        <label for="dokumentation" class="competency-title">Dokumentationskompetenz</label>
+		<p>Dokumentationskompetenz bezieht auf die Fähigkeit, Informationen, Ereignisse, Interaktionen und Interventionen systematisch zu erfassen, zu dokumentieren und zu verwalten.<p>
+<p>Wie ausgeprägt schätzen Sie Ihre Dokumentationskompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="dokumentation" name="dokumentation" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+
+             <label for="datenanalyse" class="competency-title">Datenanalysekompetenz</label>
+<p>Datenanalysekompetenz bezieht sich auf die Fähigkeit, Daten zu sammeln, zu interpretier und zu analysieren, um relevante Erkenntnisse und Informationen zu erhalten.<p>
+<p>Wie ausgeprägt schätzen Sie Ihre Datenanalysekompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="datenanalyse" name="datenanalyse" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li>
+                </ul>
+            </div>
+
+
+             <label for="beobachtung" class="competency-title">Interpretationskompetenz</label>
+		<p>Interpretationskompetenz in der Sozialen Arbeit bezieht sich auf die Fähigkeit, komplexe Informationen, Beobachtungen, soziale Kontexte und persönliche Geschichten zu versteh zu analysieren und zu interpretieren.<p>
+<p>Wie ausgeprägt schätzen Sie Ihre Interpretationskompetenz derzeit ein?<p>   
+<div class="range-container">
+                <input type="range" id="interpretation" name="interpretation" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10
+   		 </ul>
+            </div>
+
+ <label for="introspektion" class="competency-title">Introspektionskompetenz</label>
+<p>"bezeichnet die nach innen, auf eigene Gedanken und Gefühle gerichtete, gezielte Aufmerksamkeit" (Heiner 2010: 68) In der Unterscheidung zur Einfühlungskompetenz ist die Fähigkeit zur Introspektion auch mit der distanzierteren Betrachtung der Gedanken und Gefühle verbunden (vgl. ebd.).<p>
+<p>
+<p>Wie ausgeprägt schätzen Sie ihre Introspektionskompetenz derzeit ein?<p>
+            <div class="range-container">
+                <input type="range" id="interpretation" name="interpretation" min="1" max="10" value="1">
+                <ul class="range-labels">
+                    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10
+		 </ul>
+            </div>
+
+<h2>Reflexions- und Evaluationskompetenz: Anwendungsbereiche</h2>
+<p>Beispielhafte Anwendungsbereiche für die genannten Teilkompetenzen sind: Selbstreflexion, Entwicklungsdokumentation, kollegiale Beratung, Supervision, institutionelle Berichterstattung u.a. (vgl. Heiner 2010: 66).<p>
+
+     <label for="kommunikationerfahrung">Ich bringe bereits Erfahrungen aus diesen Anwendungsbereichen mit:</label>
+            <textarea id="kommunikationerfahrung" name="kommunikationerfahrung"></textarea>
+            
+            <label for="kommunikationbeispiel">Folgendes Beispiel aus der Praxis fällt mir ein:</label>
+            <textarea id="kommunikationbeispiel" name="kommunikationbeispiel"></textarea>
+            
+            <label for="kommunikationentwicklung">In welchen Bereichen möchte ich meine Kenntnisse und Fähigkeiten bezugnehmend auf Reflexions- und Evaluationskompetenz weiterentwickeln?</label>
+            <textarea id="kommunikationentwicklung" name="kommunikationentwicklung"></textarea>
+            
+            <label for="kommunikationwege">Welche Möglichkeiten und Wege stehen mir dafür offen?</label>
+            <textarea id="kommunikationwege" name="kommunikationwege"></textarea>
+        </div>
+
+    <div id="results" style="display: none;">
+        <div id="resultsContent"></div>
+    </div> 
+
+<div class="section reminder">
+        <h2>Ergebnisse anzeigen und speichern</h2>
+	<ol>
+        <li>Klicken Sie auf "Ergebnisse speichern", damit Sie die Ergebnisse als PDF-Dokument drucken und speichern können.</li>
+        <li>Wählen Sie ein Datum für Ihre nächste Selbsteinschätzung aus und speichern die Datei direkt in Ihrem Kalender ab.</li>
+        </ol>
+<div class="button-calendar-container">
+            <div class="button-group">
+                 <button onclick="window.print()" class="no-print">Ergebnisse speichern</button>
+                <button onclick="setReminder()">Erinnerung setzen</button>
+            </div>
+            <input type="date" id="reminderDate">
+        </div>
+    </div>
+
+    <script>
+    function checkNightMode() {
+        const now = new Date();
+        const hour = now.getHours();
+        const body = document.body;
+
+        if (hour >= 22 || hour < 7) {
+            body.classList.add('night-mode');
+        } else {
+            body.classList.remove('night-mode');
+        }
+    }
+
+    // Überprüfe den Nachtmodus sofort beim Laden der Seite
+    checkNightMode();
+
+    // Überprüfe den Nachtmodus alle 60 Sekunden
+    setInterval(checkNightMode, 60000);
+
+        function showResults() {
+            const form = document.getElementById('competencyForm');
+            const results = document.getElementById('results');
+            const resultsContent = document.getElementById('resultsContent');
+            
+            results.style.display = 'block';
+            resultsContent.innerHTML = '';
+
+            for (const element of form.elements) {
+                if (element.type === 'range') {
+                    const label = document.querySelector(`label[for="${element.id}"]`).textContent;
+                    resultsContent.innerHTML += `<p><strong>${label}</strong> ${element.value}/10</p>`;
+                } else if (element.tagName === 'TEXTAREA') {
+                    const label = document.querySelector(`label[for="${element.id}"]`).textContent;
+                    resultsContent.innerHTML += `<p><strong>${label}</strong></p><p>${element.value}</p>`;
+                }
+            }
+        }
+
+        function setReminder() {
+            const reminderDate = document.getElementById('reminderDate').value;
+            if (!reminderDate) {
+                alert('Bitte wählen Sie ein Datum aus.');
+                return;
+            }
+
+            const eventTitle = 'Selbsteinschätzung der Kompetenzen';
+            const eventDesc = 'Zeit für eine neue Selbsteinschätzung Ihrer Kompetenzen.';
+
+            const eventUrl = `data:text/calendar;charset=utf-8,BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:${reminderDate.replace(/-/g, '')}
+SUMMARY:${eventTitle}
+DESCRIPTION:${eventDesc}
+END:VEVENT
+END:VCALENDAR`;
+
+            const link = document.createElement('a');
+            link.href = encodeURI(eventUrl);
+            link.download = 'selbsteinschaetzung_erinnerung.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            alert('Erinnerung wurde erstellt. Bitte importieren Sie die heruntergeladene Datei in Ihren Kalender.');
+        }
+    </script>
+</body>
+</html>
